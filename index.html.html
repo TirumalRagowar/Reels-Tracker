@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReelTrack - Smart Short-Form Video Tracking & Analytics</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0f0f0f',
+                        goldPrimary: '#ffd700',
+                        goldSecondary: '#ff8c00',
+                        goldDark: '#d97706'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 25px rgba(255, 215, 0, 0.35), inset 0 0 15px rgba(255, 140, 0, 0.2); }
+            50% { box-shadow: 0 0 45px rgba(255, 215, 0, 0.7), inset 0 0 25px rgba(255, 215, 0, 0.4); }
+        }
+        .glow-effect {
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+        }
+        .bg-grid {
+            background-image: radial-gradient(rgba(255, 215, 0, 0.12) 1px, transparent 1px);
+            background-size: 36px 36px;
+        }
+    </style>
+</head>
+<body class="bg-[#0f0f0f] text-slate-100 font-sans antialiased bg-grid selection:bg-amber-400 selection:text-slate-950">
+
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#0f0f0f]/80 border-b border-amber-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3.5">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-300 via-amber-500 to-amber-700 p-0.5 shadow-lg shadow-amber-500/20">
+                    <!-- SVG Vector recreation of the golden sun/filmstrip logo -->
+                    <div class="w-full h-full bg-[#121212] rounded-[14px] flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 bg-radial from-amber-500/30 to-transparent"></div>
+                        <svg class="w-8 h-8 text-amber-400 relative z-10 filter drop-shadow-[0_0_8px_rgba(255,215,0,0.8)]" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L14.4 7.2L20 8.2L16 12.4L17 18L12 15.2L7 18L8 12.4L4 8.2L9.6 7.2L12 2Z" opacity="0.3"/>
+                            <path d="M10 9.5V14.5L14.5 12L10 9.5Z" fill="#ffd700"/>
+                            <circle cx="12" cy="12" r="9" fill="none" stroke="#ffd700" stroke-width="1.5" stroke-dasharray="3 2"/>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-white">Reel<span class="text-amber-400">Track</span></span>
+                    <span class="block text-[10px] text-amber-500/80 font-mono tracking-widest uppercase">v1.0 • Debug</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#features" class="hover:text-amber-400 transition-colors">Features</a>
+                <a href="#specs" class="hover:text-amber-400 transition-colors">App Specs</a>
+                <a href="#download" class="hover:text-amber-400 transition-colors">Download</a>
+            </nav>
+            <div>
+                <a href="#download" class="inline-flex items-center space-x-2 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 font-extrabold px-5 py-2.5 rounded-xl shadow-lg shadow-amber-500/25 transition-all transform hover:scale-105 active:scale-95 text-sm">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Download APK</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative pt-20 pb-32 overflow-hidden">
+        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                        <span>Android Debug Build Ready</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        Master Your Digital Habits with <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 text-glow">ReelTrack</span>
+                    </h1>
+                    <p class="text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        The ultimate intelligent tracker for short-form video consumption. Powered by Android Accessibility Services and Room local database for precise real-time analytics.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <button onclick="downloadAPK()" id="main-download-btn" class="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 font-extrabold px-8 py-4 rounded-2xl shadow-xl shadow-amber-500/30 transition-all transform hover:-translate-y-0.5 text-base cursor-pointer">
+                            <i class="fa-brands fa-android text-2xl"></i>
+                            <span id="btn-text">Download app-debug.apk</span>
+                        </button>
+                        <a href="#features" class="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-slate-900 hover:bg-slate-800 text-slate-300 font-semibold px-6 py-4 rounded-2xl border border-slate-800 transition-colors text-base">
+                            <span>Explore Features</span>
+                            <i class="fa-solid fa-arrow-down text-xs"></i>
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400 pt-4 border-t border-slate-900">
+                        <div class="flex items-center space-x-1.5"><i class="fa-solid fa-shield-halved text-amber-400"></i><span>Local Room Database</span></div>
+                        <div class="flex items-center space-x-1.5"><i class="fa-solid fa-bolt text-amber-400"></i><span>Min SDK 24 (Android 7.0+)</span></div>
+                        <div class="flex items-center space-x-1.5"><i class="fa-solid fa-check-circle text-amber-400"></i><span>Verified Debug APK</span></div>
+                    </div>
+                </div>
+                
+                <!-- Phone Mockup -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 h-[580px] bg-slate-900 rounded-[48px] p-4 border-4 border-amber-500/30 shadow-2xl glow-effect">
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-2xl"></div>
+                        <div class="w-full h-full bg-[#121212] rounded-[36px] overflow-hidden flex flex-col justify-between p-6 border border-slate-800">
+                            <div class="flex items-center justify-between pt-2">
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-8 h-8 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400">
+                                        <i class="fa-solid fa-chart-pie text-sm"></i>
+                                    </div>
+                                    <span class="font-bold text-xs text-white">ReelTrack Live</span>
+                                </div>
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                            </div>
+                            
+                            <div class="space-y-4 my-auto">
+                                <div class="bg-slate-900/90 rounded-2xl p-4 border border-slate-800">
+                                    <p class="text-[11px] text-slate-400">Today's Consumption</p>
+                                    <p class="text-3xl font-extrabold text-amber-400 mt-1">1h 28m</p>
+                                    <div class="w-full bg-slate-800 h-2 rounded-full mt-3 overflow-hidden">
+                                        <div class="bg-gradient-to-r from-amber-400 to-orange-500 h-full w-[60%] rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="bg-slate-900/90 rounded-2xl p-3 border border-slate-800">
+                                        <p class="text-[10px] text-slate-400">Swipes Tracked</p>
+                                        <p class="text-xl font-bold text-white mt-0.5">245</p>
+                                    </div>
+                                    <div class="bg-slate-900/90 rounded-2xl p-3 border border-slate-800">
+                                        <p class="text-[10px] text-slate-400">Service Status</p>
+                                        <p class="text-xs font-bold text-emerald-400 mt-1">Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-center pb-2">
+                                <div class="inline-block px-3 py-1 bg-amber-500/10 border border-amber-500/30 text-amber-400 rounded-full text-[10px] font-semibold">
+                                    com.aistudio.reeltrack.abxpwq
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-24 bg-[#0c0c0c] border-t border-b border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Engineered for Precision & Speed</h2>
+                <p class="text-slate-400 text-base">Built with robust native Android architecture components to provide deep usage metrics with minimal battery impact.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-[#141414] p-8 rounded-3xl border border-slate-800/80 hover:border-amber-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Real-Time Monitoring</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Instantly tracks short-form video engagement and screen sessions as they happen in the background.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-[#141414] p-8 rounded-3xl border border-slate-800/80 hover:border-amber-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-hand-holding-hand"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Accessibility Integration</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Utilizes secure Android Accessibility Services to accurately detect video scrolls and interactions.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-[#141414] p-8 rounded-3xl border border-slate-800/80 hover:border-amber-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Local Room Database</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Ensures 100% data privacy by persisting all logs and session histories securely on your device.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-[#141414] p-8 rounded-3xl border border-slate-800/80 hover:border-amber-500/50 transition-all group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-2xl mb-6 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-slate-950 transition-all">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Usage Analytics</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Comprehensive visual breakdowns and summary charts to help you build mindful screen habits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="specs" class="py-24 bg-[#0f0f0f]">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-[#141414] to-[#0c0c0c] rounded-[36px] border border-amber-500/20 p-8 sm:p-12 shadow-2xl">
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">App Technical Specifications</h2>
+                    <p class="text-slate-400 text-sm mt-2">Verified build metadata for the current Android release.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 text-center">
+                        <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Application Name</p>
+                        <p class="text-lg font-bold text-amber-400 mt-1">ReelTrack</p>
+                    </div>
+                    <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 text-center">
+                        <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Version</p>
+                        <p class="text-lg font-bold text-white mt-1">1.0 (Debug)</p>
+                    </div>
+                    <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 text-center">
+                        <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Minimum SDK</p>
+                        <p class="text-lg font-bold text-emerald-400 mt-1">API 24 (Android 7.0+)</p>
+                    </div>
+                    <div class="bg-slate-900/80 p-5 rounded-2xl border border-slate-800 text-center">
+                        <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Package ID</p>
+                        <p class="text-xs font-mono font-bold text-amber-300 mt-2 truncate" title="com.aistudio.reeltrack.abxpwq">com.aistudio.reeltrack.abxpwq</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="py-24 relative overflow-hidden bg-[#0c0c0c]">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-amber-500/5 to-transparent pointer-events-none"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="bg-gradient-to-br from-[#141414] to-[#0a0a0a] p-10 sm:p-16 rounded-[40px] border border-amber-500/30 shadow-2xl shadow-amber-500/10">
+                <div class="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-br from-amber-300 via-amber-500 to-amber-700 p-1 shadow-xl shadow-amber-500/30 mb-8 flex items-center justify-center">
+                    <svg class="w-10 h-10 text-slate-950" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L14.4 7.2L20 8.2L16 12.4L17 18L12 15.2L7 18L8 12.4L4 8.2L9.6 7.2L12 2Z" opacity="0.3"/>
+                        <path d="M10 9.5V14.5L14.5 12L10 9.5Z" fill="#0f0f0f"/>
+                    </svg>
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-4">Install ReelTrack Now</h2>
+                <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto mb-8">
+                    Download <code class="bg-slate-800 text-amber-400 px-2 py-1 rounded-md text-sm font-mono">app-debug.apk</code> directly to your Android device and start tracking your screen time today.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="downloadAPK()" class="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 font-extrabold px-10 py-5 rounded-2xl shadow-xl shadow-amber-500/30 transition-all transform hover:scale-105 active:scale-95 text-lg cursor-pointer">
+                        <i class="fa-solid fa-cloud-arrow-down text-2xl"></i>
+                        <span>Download APK (app-debug.apk)</span>
+                    </button>
+                </div>
+                <p class="text-xs text-slate-400 mt-6">
+                    Requires Android 7.0 (API 24) or higher. Enable "Install from Unknown Sources" in your device settings if prompted.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0f0f0f] border-t border-slate-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm">RT</div>
+                <span class="text-sm font-semibold text-slate-300">ReelTrack &copy; 2026. All rights reserved.</span>
+            </div>
+            <p class="text-xs text-slate-400">Package: com.aistudio.reeltrack.abxpwq • Minimum SDK 24</p>
+        </div>
+    </footer>
+
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 bg-[#161616] border border-amber-500/50 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400">
+            <i class="fa-solid fa-circle-check text-lg"></i>
+        </div>
+        <div>
+            <p class="font-bold text-sm">Download Started</p>
+            <p class="text-xs text-slate-400">app-debug.apk is downloading...</p>
+        </div>
+    </div>
+
+    <script>
+        function downloadAPK() {
+            // Create simulated direct download blob for app-debug.apk
+            const apkContent = "Simulated Android APK Binary Package for ReelTrack (com.aistudio.reeltrack.
